@@ -11,3 +11,4 @@ sources:
       - name: customer
       - name: city
       - name: country
+      - name: rental
