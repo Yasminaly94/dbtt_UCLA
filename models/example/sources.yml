@@ -12,3 +12,4 @@ sources:
       - name: city
       - name: country
       - name: rental
+      - name: film
