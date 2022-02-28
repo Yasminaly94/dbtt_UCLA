@@ -13,3 +13,6 @@ sources:
       - name: country
       - name: rental
       - name: film
+      - name: language
+      - name: film_category
+      - name: category
