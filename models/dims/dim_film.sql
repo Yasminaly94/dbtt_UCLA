@@ -11,7 +11,7 @@ SELECT
 	f.REPLACEMENT_COST,
 	f.LENGTH
 from {{ ref('stg_film')}} f
-inner join {{ ref('stg_language')}} LANGUAGE
+inner join {{ ref('stg_language')}}
 on f.langauage_id = l.langauage_id
 inner join {{ ref('stg_film_category')}} fc 
 on f.film_id = fc.film_id
