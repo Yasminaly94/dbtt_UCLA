@@ -1,6 +1,11 @@
 version: 2
 
 sources:
+  - name: DBT_YALY
+    database: sakila_dw
+    tables:
+      - name: DIM_DATE
+      - name: DIM_TIMEOFDAY
   - name: mysql_rds_sakila
     database: sakila_raw
     tables:
