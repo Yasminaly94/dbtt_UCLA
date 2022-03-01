@@ -14,9 +14,9 @@ select
     p.amount
 from
     {{ ref('stg_rental') }} r
-inner join {{  source('DBT_YALY','DIM_DATE') }} d
+inner join {{  ref('dim_DATE_DDL_DML') }} d
 on to_number(to_varchar(to_date(r.rental_date),'YYYYMMDD')) = d.DATE_KEY
-inner join {{  source('DBT_YALY','DIM_TIMEOFDAY') }} tod
+inner join {{  ref('dim_timeofday') }} tod
 on HOUR(r.rental_date) = tod.HROFDAY AND MINUTE(r.rental_date) = tod.MINOFDAY
 inner join {{ ref('dim_customer') }} c
 on r.customer_id = c.customer_id
