@@ -1,6 +1,6 @@
 {{ config(materialized='table') }}
 
-select {{dbt_utils.surrogate_key(['DD.DATE_PKEY'])}} as DATE_sk,
+select {{dbt_utils.surrogate_key(['DD.DATE_KEY'])}} as DATE_sk,
 		DATE_COLUMN,
         FULL_DATE_DESC,
 		DAY_NUM_IN_WEEK,
