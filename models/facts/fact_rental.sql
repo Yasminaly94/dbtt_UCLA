@@ -1,8 +1,8 @@
 {{ config(materialized='table') }}
 
 select 
-    {{ dbt_utils.surrogate_key(['d.DATE_KEY'])}} as RENTAL_DATE_KEY,
-    {{ dbt_utils.surrogate_key(['od.TIMEOFDAY_KEY'])}} as RENTAL_TIMEOFDAY_KEY,
+    {{ dbt_utils.surrogate_key(["d.DATE_KEY"])}} as RENTAL_DATE_KEY,
+    {{ dbt_utils.surrogate_key(["od.TIMEOFDAY_KEY"])}} as RENTAL_TIMEOFDAY_KEY,
     //HOUR(r.rental_date),
     //r.rental_date,
     r.rental_id,
