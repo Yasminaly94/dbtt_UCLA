@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-- name: DBT_YALY
+  - name: DBT_YALY
     database: sakila_dw
     tables:
       - name: DIM_DATE
