@@ -10,11 +10,3 @@ select
     hour(TEMP_TIMESTAMP) as HOUR_1,
     minute(TEMP_TIMESTAMP) as MINUTE_1
     from table(generator(rowcount => 1440))
-
-select 
-    TIME_PK, 
-    HOUR_24,
-    HOUR_12,
-    HOUR_1,
-    MINUTE_1
-from CTE_MINUTE
