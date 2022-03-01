@@ -348,4 +348,4 @@ select {{dbt_utils.surrogate_key(['DD.DATE_PKEY'])}} as DATE_sk,
 			to_date(current_timestamp) as EFFECTIVE_DATE,
 			to_date('9999-12-31') as EXPIRA_DATE
 			from table(generator(rowcount => 8401)) /*<< Set to generate 20 years. Modify rowcount to increase or decrease size*/
-	)v;
+	)v
