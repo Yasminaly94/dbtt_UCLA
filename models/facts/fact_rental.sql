@@ -12,7 +12,6 @@ select
     sl.STORE_LOCATION_KEY,
     1 as rental_quantity,
     p.amount
-
 from
     {{ ref('stg_rental') }} r
 inner join {{  source('DBT_YALY','DIM_DATE') }} d
