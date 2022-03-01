@@ -1,6 +1,6 @@
 {{ config(materialized='table') }}
 
-select {{dbt_utils.surrogate_key(['DD.DATE_PKEY'])}} as DATE_sk,
+select {{dbt_utils.surrogate_key(['DD.DATE_KEY'])}} as DATE_sk,
 		DATE_COLUMN,
         FULL_DATE_DESC,
 		DAY_NUM_IN_WEEK,
@@ -88,8 +88,8 @@ select {{dbt_utils.surrogate_key(['DD.DATE_PKEY'])}} as DATE_sk,
                  'Not-Weekday'
 				else 'Weekday' end as WEEKDAY_IND,
 			 case 
-				when (DATE_PKEY = date_part(year, V_DATE)||'0101' or DATE_PKEY = date_part(year, V_DATE)||'0704' or
-				DATE_PKEY = date_part(year, V_DATE)||'1225' or DATE_PKEY = date_part(year, V_DATE)||'1226') then  
+				when (DATE_KEY = date_part(year, V_DATE)||'0101' or DATE_KEY = date_part(year, V_DATE)||'0704' or
+				DATE_KEY = date_part(year, V_DATE)||'1225' or DATE_KEY = date_part(year, V_DATE)||'1226') then  
 				'Holiday' 
 				when monthname(V_DATE_1) ='May' and dayname(last_day(V_DATE_1)) = 'Wed' 
 				and dateadd(day,-2,last_day(V_DATE_1)) = V_DATE_1  then
@@ -165,9 +165,9 @@ select {{dbt_utils.surrogate_key(['DD.DATE_PKEY'])}} as DATE_sk,
 				'Not-Holiday' end as US_HOLIDAY_IND,
 			/*Modify the following for Company Specific Holidays*/
 			case 
-				when (DATE_PKEY = date_part(year, V_DATE)||'0101' or DATE_PKEY = date_part(year, V_DATE)||'0219'
-				or DATE_PKEY = date_part(year, V_DATE)||'0528' or DATE_PKEY = date_part(year, V_DATE)||'0704' 
-				or DATE_PKEY = date_part(year, V_DATE)||'1225' )then 
+				when (DATE_KEY = date_part(year, V_DATE)||'0101' or DATE_KEY = date_part(year, V_DATE)||'0219'
+				or DATE_KEY = date_part(year, V_DATE)||'0528' or DATE_KEY = date_part(year, V_DATE)||'0704' 
+				or DATE_KEY = date_part(year, V_DATE)||'1225' )then 
 				'Holiday'               
                 when monthname(V_DATE_1) ='Mar' and dayname(last_day(V_DATE_1)) = 'Fri' 
 				and last_day(V_DATE_1) = V_DATE_1 then
