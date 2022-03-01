@@ -16,3 +16,6 @@ sources:
       - name: language
       - name: film_category
       - name: category
+      - name: inventory
+      - name: payment
+
